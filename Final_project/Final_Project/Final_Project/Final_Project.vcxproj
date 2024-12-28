@@ -108,6 +108,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\danie\Desktop\Final_project\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,9 +132,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\source\main.cpp">
-      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    <ClCompile Include="..\..\..\source\luck_game_1.c" />
+    <ClCompile Include="..\..\..\source\luck_game_2.c" />
+    <ClCompile Include="..\..\..\source\luck_game_3.c" />
+    <ClCompile Include="..\..\..\source\main.c">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_CRT_SECURE_NO_WARINGS</PreprocessorDefinitions>
     </ClCompile>
+    <ClCompile Include="..\..\..\source\power_game_1.c" />
+    <ClCompile Include="..\..\..\source\power_game_2.c" />
+    <ClCompile Include="..\..\..\source\power_game_3.c" />
+    <ClCompile Include="..\..\..\source\speed_game_1.c" />
+    <ClCompile Include="..\..\..\source\speed_game_2.c" />
+    <ClCompile Include="..\..\..\source\speed_game_3.c" />
+    <ClCompile Include="..\..\..\source\wisdom_game_1.c" />
+    <ClCompile Include="..\..\..\source\wisdom_game_2.c" />
+    <ClCompile Include="..\..\..\source\wisdom_game_3.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\game_index.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

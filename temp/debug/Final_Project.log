@@ -1,4 +1,6 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(516,5): warning MSB8004: Intermediate 目錄結尾不是結尾斜線。這個建置執行個體將會加入此斜線，因為這樣才能正確評估 Intermediate 目錄。
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8004: Output 目錄結尾不是結尾斜線。這個建置執行個體將會加入此斜線，因為這樣才能正確評估 Output 目錄。
-  main.cpp
+  main.c
+C:\Users\danie\Desktop\Final_project\source\main.c(66,2): warning C4098: 'judge': 'void' 函式正在傳回值
+C:\Users\danie\Desktop\Final_project\source\main.c(104,11): warning C4267: '=': 將 'size_t' 轉換為 'int'，資料可能遺失
   Final_Project.vcxproj -> C:\Users\danie\Desktop\Final_project\temp\debug\Final_Project.exe
