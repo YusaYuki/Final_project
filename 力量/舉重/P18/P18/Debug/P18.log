@@ -1,0 +1,3 @@
+﻿  Main.c
+C:\Users\User\Desktop\Programming-Languages-Homework-7\力量\舉重\P18\P18\Main.c(9,11): warning C4244: '函式': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
+  P18.vcxproj -> C:\Users\User\Desktop\Programming-Languages-Homework-7\力量\舉重\P18\Debug\P18.exe
