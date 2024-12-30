@@ -17,18 +17,25 @@
 
 
 
-#define DEBUG 0
+#define MAX_RESULTS 100
+
 
   
 int game_choice;
 int practice_choice;
 char ch;
 int cnt = 0;
-int win;
 int power_r;
 int wisdom_r;
 int speed_r;
 int luck_r;
+int joke;
+char seed_plant;
+
+typedef struct {
+	char type[50];
+	int count;
+} Result;
 
 
 typedef struct seed_status
@@ -38,6 +45,10 @@ typedef struct seed_status
 	int wisdom;
 	int speed;
 	int luck;
+	int power_o;
+	int wisdom_o;
+	int speed_o;
+	int luck_o;
 	int total;
 	int s_rank;
 
@@ -52,19 +63,6 @@ int random_game() {
 	return x;
 }
 
-//勝負判斷
-void judge( int k ) {
-	if (win == 0) {
-		k = k - 1;
-	}
-	else if (win==1) {
-		k = k + 1;
-	}
-	else{
-		k = k;
-	}
-	return k;
-}
 
 //種子的分級
 void rank(int x) {
@@ -127,8 +125,6 @@ int generateInitial() {
 }
 
 
-
-
 //載入動畫
 void animate_loading() {
 		printf("Loading");
@@ -151,6 +147,40 @@ void typewriterEffect(const char* text, int delays) {
 
 
 
+void joke_quest() {
+	int ans;
+	int n = 0;
+	int k = 0;
+	printf("四張周杰倫的票可以換什麼?\n");
+	printf("(1).聽四場周杰倫的演唱會\n(2).換一張月杰倫的票\n");
+	scanf("%d", &ans);
+
+	if (ans = 2) {
+		n++;
+	}
+	k++;
+	if (k == 1) {
+		printf("為什麼電腦一直都不快樂?\n");
+		printf("(1).因為它有D槽\n(2).程式找不到BUG\n");
+		scanf("%d", &ans);
+
+		if (ans = 1) {
+			n++;
+		}
+	}
+	k++;
+	if (k == 2) {
+		printf("哪一種生物的名字裡面有蟹而且是截肢動物?\n");
+		printf("(1).謝坤山\n(2).螃蟹\n");
+		scanf("%d", &ans);
+
+		if (ans = 1) {
+			n++;
+		}
+	}
+
+	joke=n;
+}
 
 int main(void) {
 
@@ -197,7 +227,7 @@ int main(void) {
 		}
 
 		//開始遊戲
-		else {
+		else if(game_choice == 1) {
 			//敘述遊戲背景
 			x = 1;
 			animate_loading();
@@ -231,6 +261,14 @@ int main(void) {
 			sd.wisdom = generateInitial();
 			sd.speed = generateInitial();
 			sd.luck = generateInitial();
+			sd.power_o = sd.power;
+			sd.wisdom_o = sd.wisdom;
+			sd.speed_o = sd.speed;
+			sd.luck_o = sd.luck;
+
+
+
+
 			printf("﹝種子數值﹞\n力氣:  %d\n智慧:  %d\n速度:  %d\n幸運:  %d\n", sd.power, sd.wisdom, sd.speed, sd.luck);
 
 
@@ -242,8 +280,6 @@ int main(void) {
 			typewriterEffect(message_story4, 100); // 每個字元延遲 0.1 秒
 			printf("\n");
 			printf("\n");
-
-
 
 			int round = 1;
 			while (round < 11) {
@@ -289,7 +325,7 @@ int main(void) {
 						sd.power += 0;
 					}
 
-					printf("%d\n", sd.power);
+				
 					break;
 
 
@@ -322,7 +358,7 @@ int main(void) {
 						sd.wisdom += 0;
 					}
 
-					printf("%d\n", sd.wisdom);
+					
 					break;
 
 
@@ -355,7 +391,7 @@ int main(void) {
 						sd.speed += 0;
 					}
 
-					printf("%d\n", sd.speed);
+					
 					break;
 
 
@@ -407,22 +443,42 @@ int main(void) {
 
 
 			}
-
-
-
+			break;
 		}
 
-
-		printf("\n");
-		printf("﹝培育後種子數值﹞\n力氣:  %d\n智慧:  %d\n速度:  %d\n幸運:  %d\n", sd.power, sd.wisdom, sd.speed, sd.luck);
-		sd.total = sd.power + sd.wisdom + sd.speed + sd.luck;
-
-
-
-
+		
 
 	}
+	printf("\n");
+	printf("﹝培育後種子數值﹞\n力氣:  %d\n智慧:  %d\n速度:  %d\n幸運:  %d\n", sd.power, sd.wisdom, sd.speed, sd.luck);
+	sd.total = sd.power + sd.wisdom + sd.speed + sd.luck;
+	joke_quest();
+	printf("培育出:");
 
+	
+	
+	if (sd.speed > sd.power && sd.speed > sd.luck && sd.speed > sd.wisdom && sd.speed > sd.speed_o) {
+		printf("台北不釋我的迦"); 
+	}
+	else if (sd.power > sd.speed && sd.power > sd.luck && sd.power > sd.wisdom && sd.power > sd.power_o) {
+		printf("乳香釋迦"); 
+	}
+	else if (sd.luck > sd.power && sd.luck > sd.speed && sd.luck > sd.wisdom && sd.luck > sd.luck_o) {
+		printf("貴族釋迦"); 
+	}
+	else if (sd.wisdom > sd.power && sd.wisdom > sd.luck && sd.wisdom > sd.speed && sd.wisdom > sd.wisdom_o) {
+		printf("知釋絕迦"); ;
+	}
+	else if (sd.wisdom_o > sd.wisdom && sd.luck_o > sd.luck && sd.speed_o > sd.speed && sd.power_o > sd.power) {
+		printf("我釋甲迦"); ;
+	}
+	else if (sd.wisdom > sd.power && sd.wisdom > sd.luck && sd.wisdom > sd.speed && sd.wisdom > sd.wisdom_o && joke == 3) {
+		printf("隱藏版 黃釋迦");
+	}
+	else {
+		printf("普通釋迦");
+	}
+	printf("\n");
 	system("pause");	
 	return 0;
 
