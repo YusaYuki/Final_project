@@ -19,7 +19,7 @@ int speed_game_1() {
 
     // 提示玩家輸入指定字母
     printf("準備好輸入指定的字母！\n");
-    printf("反應時間小於1秒獲勝！\n");
+    printf("反應時間小於3秒獲勝！\n");
     int waitTime = 3;
     printf("等待中... (3秒後請按下指定字母)\n", waitTime);
 
@@ -45,14 +45,14 @@ int speed_game_1() {
     reactionTime = (double)(end - start) / CLOCKS_PER_SEC;
 
     printf("你的反應時間是: %.3f 秒\n", reactionTime);
-    if (reactionTime < 1) {
-        printf("你贏了!獲得一點敏捷");
+    if (reactionTime < 3) {
+        printf("你贏了!獲得一點敏捷\n");
         x = 1;
         return x;
     }
     else
     {
-        printf("你輸了");
+        printf("你輸了\n");
         x = 0;
         return x;
     }

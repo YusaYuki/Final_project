@@ -155,7 +155,7 @@ void joke_quest() {
 	printf("(1).聽四場周杰倫的演唱會\n(2).換一張月杰倫的票\n");
 	scanf("%d", &ans);
 
-	if (ans = 2) {
+	if (ans == 2) {
 		n++;
 	}
 	k++;
@@ -164,7 +164,7 @@ void joke_quest() {
 		printf("(1).因為它有D槽\n(2).程式找不到BUG\n");
 		scanf("%d", &ans);
 
-		if (ans = 1) {
+		if (ans == 1) {
 			n++;
 		}
 	}
@@ -174,7 +174,7 @@ void joke_quest() {
 		printf("(1).謝坤山\n(2).螃蟹\n");
 		scanf("%d", &ans);
 
-		if (ans = 1) {
+		if (ans == 1) {
 			n++;
 		}
 	}
@@ -203,6 +203,7 @@ int main(void) {
 
 		//查看圖鑑
 		else if (game_choice == 2) {
+			setlocale(LC_ALL, "zh_TW.UTF-8");  // 設定地區
 			FILE* fptr;
 			fptr = fopen("index.txt", "r");
 			if (fptr != NULL) {
@@ -210,7 +211,10 @@ int main(void) {
 					printf("%c", ch);
 					cnt++;
 				}
+			
+			
 				fclose(fptr);
+				setlocale(LC_ALL, "");
 			}
 			else
 				printf("檔案開啟錯誤!!!");
@@ -435,12 +439,7 @@ int main(void) {
 					break;
 				}
 
-			
-
-		
-
 				round += 1;
-
 
 			}
 			break;
@@ -460,6 +459,9 @@ int main(void) {
 	if (sd.speed > sd.power && sd.speed > sd.luck && sd.speed > sd.wisdom && sd.speed > sd.speed_o) {
 		printf("台北不釋我的迦"); 
 	}
+	else if (sd.wisdom > sd.power && sd.wisdom > sd.luck && sd.wisdom > sd.speed && sd.wisdom > sd.wisdom_o && joke == 3) {
+		printf("隱藏版 黃釋迦");
+	}
 	else if (sd.power > sd.speed && sd.power > sd.luck && sd.power > sd.wisdom && sd.power > sd.power_o) {
 		printf("乳香釋迦"); 
 	}
@@ -471,9 +473,6 @@ int main(void) {
 	}
 	else if (sd.wisdom_o > sd.wisdom && sd.luck_o > sd.luck && sd.speed_o > sd.speed && sd.power_o > sd.power) {
 		printf("我釋甲迦"); ;
-	}
-	else if (sd.wisdom > sd.power && sd.wisdom > sd.luck && sd.wisdom > sd.speed && sd.wisdom > sd.wisdom_o && joke == 3) {
-		printf("隱藏版 黃釋迦");
 	}
 	else {
 		printf("普通釋迦");

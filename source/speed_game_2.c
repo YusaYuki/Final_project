@@ -23,7 +23,7 @@ int speed_game_2() {
 
     int waitTime = 3;
     printf("等待中... (3秒後請輸入指定數字)\n", waitTime);
-    printf("反應時間小於5秒獲勝");
+    printf("反應時間小於10秒獲勝");
     // 設置一個簡單的延遲 (通過循環來模擬隨機等待時間)
     start = clock();
     while ((clock() - start) / CLOCKS_PER_SEC < waitTime) {
@@ -47,20 +47,20 @@ int speed_game_2() {
     // 檢查玩家輸入是否正確
     if (strcmp(generatedNumber, userInput) == 0) {
         printf("輸入正確！你的反應時間是: %.3f 秒\n", reactionTime);
-        if (reactionTime < 5) {
-            printf("你贏了!獲得一點敏捷");
+        if (reactionTime < 10) {
+            printf("你贏了!獲得一點敏捷\n");
             x = 1;
             return x;
         }
         else {
-            printf("你輸了");
+            printf("你輸了\n");
             x = 0;
             return x;
         }
     }
     else {
         printf("輸入錯誤！正確的數字串是: %s\n", generatedNumber);
-        printf("你輸了");
+        printf("你輸了\n");
         x = 0;
         return x;
     }
